@@ -853,6 +853,16 @@ body.lb-open{overflow:hidden}
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
   .js .reveal{opacity:1;transform:none}
 }
+
+/* ==========================================================================
+   14. 주제별 세부 안내 카드
+   ========================================================================== */
+.guide-card{display:flex;flex-direction:column;gap:8px}
+.guide-card .guide-tag{font-size:11.5px;font-weight:750;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald-700)}
+.guide-card h3{font-size:17px;margin:0;letter-spacing:-.03em;line-height:1.4}
+.guide-card p{font-size:14px;line-height:1.65;color:var(--body)}
+.guide-card .guide-more{margin-top:auto;padding-top:10px;font-size:13px;font-weight:750;color:var(--emerald-700)}
+.guide-card:hover .guide-more{color:var(--emerald-600)}
 </style>
 <style>
 /* ==========================================================================
@@ -1144,7 +1154,7 @@ table.data .en{font-style:italic;color:#4c6076}
     <div class="prose reveal" style="margin-top:26px">
       <h3>초등에서 가장 자주 생기는 구멍</h3>
       <p>
-        해외 학교에서 계산기를 쓰거나, 분수를 ‘pizza fraction’으로만 배운 학생은
+        해외 학교에서 계산기를 쓰거나, 분수를 그림으로만 배운 학생은
         통분과 약분의 원리가 비어 있는 경우가 있습니다. 이 상태로 중1 문자와 식에 들어가면
         식을 세우는 것보다 계산에서 시간이 다 가 버립니다.
         그래서 초등 수업은 <strong>진도보다 계산의 원리</strong>를 먼저 확인합니다.
