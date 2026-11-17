@@ -266,6 +266,7 @@ img{max-width:100%;display:block}
 .section{padding:clamp(58px,8vw,104px) 0}
 .section--tight{padding:clamp(40px,5vw,64px) 0}
 .section--paper{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section--paper + .section--paper{border-top:0}
 .section--dark{background:var(--navy-800);color:rgba(255,255,255,.76);position:relative;overflow:hidden}
 .section--dark h2,.section--dark h3{color:#fff}
 
@@ -729,6 +730,61 @@ body.lb-open{overflow:hidden}
 }
 
 /* ==========================================================================
+   11.6 플로팅 빠른 상담 (우측 하단 고정)
+   ========================================================================== */
+.quick-cta{
+  position:fixed;right:20px;bottom:20px;z-index:95;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.quick-btn{
+  display:inline-flex;align-items:center;gap:10px;padding:11px 18px 11px 13px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);background:linear-gradient(140deg,#12304c,#0b2036 70%);color:#fff;
+  font-weight:750;font-size:14.5px;letter-spacing:-.02em;line-height:1.25;text-align:left;
+  box-shadow:0 18px 36px -16px rgba(7,24,41,.7), 0 2px 6px rgba(7,24,41,.18);
+  transition:transform .18s ease, box-shadow .22s ease, background .22s ease;
+}
+.quick-btn:hover{transform:translateY(-2px);box-shadow:0 24px 44px -18px rgba(7,24,41,.75)}
+.quick-btn:active{transform:translateY(0)}
+.quick-btn-icon{
+  width:30px;height:30px;border-radius:10px;background:#FEE500;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.quick-btn-icon svg{width:18px;height:18px;display:block}
+.quick-btn-label small{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.02em;margin-top:2px}
+
+.quick-pop{
+  width:min(324px,calc(100vw - 32px));max-height:calc(100vh - 190px);overflow:auto;
+  background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;
+  box-shadow:0 28px 64px -30px rgba(7,24,41,.55), 0 2px 8px rgba(7,24,41,.08);
+  animation:quickPopIn .2s cubic-bezier(.2,.8,.3,1);
+}
+.quick-pop[hidden]{display:none}
+@keyframes quickPopIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+.quick-pop-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:13px}
+.quick-pop-eyebrow{font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald-700);margin-bottom:3px}
+.quick-pop-head h3{font-size:16.5px;letter-spacing:-.03em}
+.quick-pop-close{
+  flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--muted);font-size:17px;line-height:1;display:flex;align-items:center;justify-content:center;
+}
+.quick-pop-close:hover{background:var(--ivory-200);color:var(--ink)}
+.quick-qr-row{display:flex;align-items:center;gap:12px;padding:11px;border-radius:14px;background:var(--ivory);border:1px solid var(--line)}
+.quick-qr-row img{width:84px;height:84px;flex:none;border-radius:8px;background:#fff;padding:3px;border:1px solid var(--line)}
+.quick-qr-text{min-width:0}
+.quick-qr-text strong{display:block;font-size:13.5px;color:var(--ink);font-weight:750;margin-bottom:3px;letter-spacing:-.02em}
+.quick-qr-text span{display:block;font-size:12px;line-height:1.55;color:var(--body)}
+.quick-id{display:flex;align-items:center;gap:8px;margin:12px 0 13px;padding:10px 12px;border:1px dashed #cfdcd5;border-radius:12px;background:#f7fbf9}
+.quick-id > span{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.02em;flex:none}
+.quick-id strong{font-size:16px;font-weight:800;color:var(--navy-800);letter-spacing:.01em;flex:1 1 auto;min-width:0}
+.quick-copy{
+  flex:none;padding:7px 13px;border-radius:999px;border:1.5px solid var(--emerald-600);
+  background:#fff;color:var(--emerald-700);font-size:12.5px;font-weight:750;transition:background .16s ease,color .16s ease;
+}
+.quick-copy:hover{background:var(--emerald-600);color:#fff}
+.quick-pop .btn-block + .btn-block{margin-top:8px}
+.quick-note{margin-top:11px;font-size:11.5px;line-height:1.6;color:var(--muted);text-align:center}
+
+/* ==========================================================================
    12. 반응형
    ========================================================================== */
 @media (max-width:1020px){
@@ -770,6 +826,12 @@ body.lb-open{overflow:hidden}
   .summary-text{font-size:13px;padding:14px}
   .hero-facts li{font-size:12.5px;padding:6px 11px}
   .brand-text span{display:none}
+  .quick-cta{right:12px;bottom:calc(84px + env(safe-area-inset-bottom));gap:8px}
+  .quick-btn{padding:10px 15px 10px 11px;font-size:13.5px}
+  .quick-btn-icon{width:27px;height:27px;border-radius:9px}
+  .quick-btn-icon svg{width:16px;height:16px}
+  .quick-btn-label small{display:none}
+  .quick-pop{width:calc(100vw - 24px);max-height:calc(100vh - 220px);padding:14px}
 }
 @media (max-width:420px){
   .wrap{padding:0 16px}
@@ -787,7 +849,7 @@ body.lb-open{overflow:hidden}
    ========================================================================== */
 @media print{
   body{background:#fff;padding:0}
-  .site-header,.mobile-bar,.hero-actions,.hero-facts,.result-actions,.contact,.site-footer,.all-slots,.faq-item summary::after{display:none!important}
+  .site-header,.mobile-bar,.quick-cta,.hero-actions,.hero-facts,.result-actions,.contact,.site-footer,.all-slots,.faq-item summary::after{display:none!important}
   .section{padding:18px 0;break-inside:avoid}
   .hero{background:#fff;color:#000;border-bottom:2px solid #0b2036}
   .hero h1,.hero h1 .hl{color:#000}
@@ -825,10 +887,10 @@ body.lb-open{overflow:hidden}
       </span>
     </a>
     <nav class="nav" id="nav" aria-label="주요 메뉴">
+      <a href="#reviews">성적 향상 후기</a>
       <a href="#why">왜 귀국 수학인가</a>
       <a href="#experience">지도 경력</a>
       <a href="#track">학년별 트랙</a>
-      <a href="#reviews">후기</a>
       <a href="#apply">시차·신청</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -883,6 +945,106 @@ body.lb-open{overflow:hidden}
         </p>
       </aside>
     </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     후기
+     ========================================================================= -->
+<section class="section section--paper" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Reviews</p>
+      <h2>실제 성적 향상 &amp; 학부모 후기</h2>
+      <p>
+        학부모님과 학생이 직접 보내 주신 메시지, 그리고 실제 시험지입니다.
+        개인정보 보호를 위해 이름은 가렸고, 내용은 그대로 두었습니다. 이미지를 누르면 크게 볼 수 있습니다.
+      </p>
+    </div>
+
+    <div class="review-grid reveal">
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-02-mid2-29to1wrong.jpg" data-caption="중2 · 1학기 29점 → 여름방학 과외 후 중간고사 1문항 오답" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-02-mid2-29to1wrong.jpg" alt="학부모 후기 캡처: 공부를 포기해 1학기 29점이던 중2 학생이 여름방학에 과외를 시작하고 중간고사에서 한 문제만 틀렸다는 내용" width="900" height="670" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">중2</span>
+          <p>1학기 <strong>29점</strong> → 중간고사 <strong>1문항 오답</strong></p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-01-ap-gt-a.jpg" data-caption="해외 국제학교 · 6주 평균 97점 / AP·GT A" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-01-ap-gt-a.jpg" alt="국제학교 성적표 캡처와 학부모 메시지: AP/GT A 과목 성적과 '지난 6주도 평균 97점'이라는 내용" width="900" height="740" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">해외 국제학교</span>
+          <p><strong>6주 평균 97점</strong> · AP/GT A</p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-06-5days-100.jpg" data-caption="수업 5일 후 100점 · 학부모 메시지" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-06-5days-100.jpg" alt="학부모 메시지 캡처: 5일 수업하고 아이가 수학 100점을 받을 줄 몰랐고 자기 자신도 놀란 것 같다는 내용" width="900" height="900" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">수업 5일</span>
+          <p><strong>5일</strong> 수업 후 <strong>100점</strong></p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-04-100-kakao.jpg" data-caption="학생이 먼저 보낸 '수학 100점인 것 같아요'와 100점 시험지" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-04-100-kakao.jpg" alt="학생 메시지와 시험지 캡처: '쌤 저 수학 100점인거 같아요'라고 보낸 대화와 100점짜리 시험지 사진 네 장" width="900" height="1649" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">100점</span>
+          <p>학생이 먼저 보낸 <strong>“수학 100점인 것 같아요”</strong></p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-03-test-96.jpg" data-caption="지필평가 96점 시험지" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-03-test-96.jpg" alt="지필평가 시험지 사진: 96점이 크게 적힌 중2 수학 시험지" width="900" height="1127" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">지필평가</span>
+          <p>지필평가 <strong>96점</strong> 시험지</p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-07-high1-interest.jpg" data-caption="고1 · 수포자였던 학생이 수학이 제일 재밌다고" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-07-high1-interest.jpg" alt="학부모 후기 캡처: 고1 학생이 수포자였는데 선생님을 만나고 나서 수학이 제일 재밌다고 한다는 내용" width="900" height="561" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">고1</span>
+          <p>“수포자였던 아이가 <strong>수학이 제일 재밌다</strong>고”</p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-08-parent-trust.jpg" data-caption="학부모 신뢰 메시지 · '제 말은 안 듣고 선생님 말만 듣네요'" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-08-parent-trust.jpg" alt="학부모 메시지 캡처: 전에 아이에게 말했는데 제 말은 안 듣고 선생님 말만 듣는다는 내용과 수업료 입금 안내" width="900" height="460" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">학부모</span>
+          <p>“제 말은 안 듣고 <strong>선생님 말만</strong> 듣네요”</p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-05-homework-feedback.jpg" data-caption="과제 풀이 교정 피드백과 학부모 감사 메시지" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-05-homework-feedback.jpg" alt="카카오톡 캡처: 숙제 풀이를 한 문제씩 교정해 준 사진과 그에 대한 학부모 감사 메시지" width="900" height="1159" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">과제 피드백</span>
+          <p>풀이 교정 피드백 + 학부모 감사 메시지</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="review-note reveal">※ 위 후기는 실제 수업 후 받은 메시지와 시험지입니다. 점수와 기간은 해당 학생의 사례이며, 학생에 따라 결과는 달라질 수 있습니다.</p>
   </div>
 </section>
 
@@ -1046,106 +1208,6 @@ body.lb-open{overflow:hidden}
         <p class="track-foot">귀국 포인트 · 첫 모의고사 점수보다 흔들리지 않는 뼈대</p>
       </article>
     </div>
-  </div>
-</section>
-
-<!-- =========================================================================
-     후기
-     ========================================================================= -->
-<section class="section section--paper" id="reviews">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Reviews</p>
-      <h2>실제 성적 향상 &amp; 학부모 후기</h2>
-      <p>
-        학부모님과 학생이 직접 보내 주신 메시지, 그리고 실제 시험지입니다.
-        개인정보 보호를 위해 이름은 가렸고, 내용은 그대로 두었습니다. 이미지를 누르면 크게 볼 수 있습니다.
-      </p>
-    </div>
-
-    <div class="review-grid reveal">
-      <figure class="review-card">
-        <button type="button" class="review-btn" data-src="assets/reviews/review-02-mid2-29to1wrong.jpg" data-caption="중2 · 1학기 29점 → 여름방학 과외 후 중간고사 1문항 오답" aria-label="후기 크게 보기">
-          <img src="assets/reviews/review-02-mid2-29to1wrong.jpg" alt="학부모 후기 캡처: 공부를 포기해 1학기 29점이던 중2 학생이 여름방학에 과외를 시작하고 중간고사에서 한 문제만 틀렸다는 내용" width="900" height="670" loading="lazy" decoding="async">
-        </button>
-        <figcaption>
-          <span class="review-tag">중2</span>
-          <p>1학기 <strong>29점</strong> → 중간고사 <strong>1문항 오답</strong></p>
-        </figcaption>
-      </figure>
-
-      <figure class="review-card">
-        <button type="button" class="review-btn" data-src="assets/reviews/review-01-ap-gt-a.jpg" data-caption="해외 국제학교 · 6주 평균 97점 / AP·GT A" aria-label="후기 크게 보기">
-          <img src="assets/reviews/review-01-ap-gt-a.jpg" alt="국제학교 성적표 캡처와 학부모 메시지: AP/GT A 과목 성적과 '지난 6주도 평균 97점'이라는 내용" width="900" height="740" loading="lazy" decoding="async">
-        </button>
-        <figcaption>
-          <span class="review-tag">해외 국제학교</span>
-          <p><strong>6주 평균 97점</strong> · AP/GT A</p>
-        </figcaption>
-      </figure>
-
-      <figure class="review-card">
-        <button type="button" class="review-btn" data-src="assets/reviews/review-06-5days-100.jpg" data-caption="수업 5일 후 100점 · 학부모 메시지" aria-label="후기 크게 보기">
-          <img src="assets/reviews/review-06-5days-100.jpg" alt="학부모 메시지 캡처: 5일 수업하고 아이가 수학 100점을 받을 줄 몰랐고 자기 자신도 놀란 것 같다는 내용" width="900" height="900" loading="lazy" decoding="async">
-        </button>
-        <figcaption>
-          <span class="review-tag">수업 5일</span>
-          <p><strong>5일</strong> 수업 후 <strong>100점</strong></p>
-        </figcaption>
-      </figure>
-
-      <figure class="review-card">
-        <button type="button" class="review-btn" data-src="assets/reviews/review-04-100-kakao.jpg" data-caption="학생이 먼저 보낸 '수학 100점인 것 같아요'와 100점 시험지" aria-label="후기 크게 보기">
-          <img src="assets/reviews/review-04-100-kakao.jpg" alt="학생 메시지와 시험지 캡처: '쌤 저 수학 100점인거 같아요'라고 보낸 대화와 100점짜리 시험지 사진 네 장" width="900" height="1649" loading="lazy" decoding="async">
-        </button>
-        <figcaption>
-          <span class="review-tag">100점</span>
-          <p>학생이 먼저 보낸 <strong>“수학 100점인 것 같아요”</strong></p>
-        </figcaption>
-      </figure>
-
-      <figure class="review-card">
-        <button type="button" class="review-btn" data-src="assets/reviews/review-03-test-96.jpg" data-caption="지필평가 96점 시험지" aria-label="후기 크게 보기">
-          <img src="assets/reviews/review-03-test-96.jpg" alt="지필평가 시험지 사진: 96점이 크게 적힌 중2 수학 시험지" width="900" height="1127" loading="lazy" decoding="async">
-        </button>
-        <figcaption>
-          <span class="review-tag">지필평가</span>
-          <p>지필평가 <strong>96점</strong> 시험지</p>
-        </figcaption>
-      </figure>
-
-      <figure class="review-card">
-        <button type="button" class="review-btn" data-src="assets/reviews/review-07-high1-interest.jpg" data-caption="고1 · 수포자였던 학생이 수학이 제일 재밌다고" aria-label="후기 크게 보기">
-          <img src="assets/reviews/review-07-high1-interest.jpg" alt="학부모 후기 캡처: 고1 학생이 수포자였는데 선생님을 만나고 나서 수학이 제일 재밌다고 한다는 내용" width="900" height="561" loading="lazy" decoding="async">
-        </button>
-        <figcaption>
-          <span class="review-tag">고1</span>
-          <p>“수포자였던 아이가 <strong>수학이 제일 재밌다</strong>고”</p>
-        </figcaption>
-      </figure>
-
-      <figure class="review-card">
-        <button type="button" class="review-btn" data-src="assets/reviews/review-08-parent-trust.jpg" data-caption="학부모 신뢰 메시지 · '제 말은 안 듣고 선생님 말만 듣네요'" aria-label="후기 크게 보기">
-          <img src="assets/reviews/review-08-parent-trust.jpg" alt="학부모 메시지 캡처: 전에 아이에게 말했는데 제 말은 안 듣고 선생님 말만 듣는다는 내용과 수업료 입금 안내" width="900" height="460" loading="lazy" decoding="async">
-        </button>
-        <figcaption>
-          <span class="review-tag">학부모</span>
-          <p>“제 말은 안 듣고 <strong>선생님 말만</strong> 듣네요”</p>
-        </figcaption>
-      </figure>
-
-      <figure class="review-card">
-        <button type="button" class="review-btn" data-src="assets/reviews/review-05-homework-feedback.jpg" data-caption="과제 풀이 교정 피드백과 학부모 감사 메시지" aria-label="후기 크게 보기">
-          <img src="assets/reviews/review-05-homework-feedback.jpg" alt="카카오톡 캡처: 숙제 풀이를 한 문제씩 교정해 준 사진과 그에 대한 학부모 감사 메시지" width="900" height="1159" loading="lazy" decoding="async">
-        </button>
-        <figcaption>
-          <span class="review-tag">과제 피드백</span>
-          <p>풀이 교정 피드백 + 학부모 감사 메시지</p>
-        </figcaption>
-      </figure>
-    </div>
-
-    <p class="review-note reveal">※ 위 후기는 실제 수업 후 받은 메시지와 시험지입니다. 점수와 기간은 해당 학생의 사례이며, 학생에 따라 결과는 달라질 수 있습니다.</p>
   </div>
 </section>
 
@@ -1539,6 +1601,46 @@ body.lb-open{overflow:hidden}
 
 <div class="mobile-bar" id="mobileBar">
   <a class="btn btn-primary" href="#apply">시범 수업·학습 진단 신청</a>
+</div>
+
+<!-- =========================================================================
+     우측 하단 고정 빠른 상담
+     ========================================================================= -->
+<div class="quick-cta" id="quickCta">
+  <div class="quick-pop" id="quickPop" role="dialog" aria-labelledby="quickPopTitle" hidden>
+    <div class="quick-pop-head">
+      <div>
+        <p class="quick-pop-eyebrow">빠른 상담</p>
+        <h3 id="quickPopTitle">카카오톡으로 바로 상담</h3>
+      </div>
+      <button class="quick-pop-close" id="quickClose" type="button" aria-label="상담 창 닫기">×</button>
+    </div>
+
+    <div class="quick-qr-row">
+      <img src="assets/kakao-qr.png" alt="카카오톡 친구 추가 QR 코드 (ID juuws)" width="86" height="86" loading="lazy" decoding="async">
+      <div class="quick-qr-text">
+        <strong>QR로 바로 추가</strong>
+        <span>휴대폰 카메라로 스캔하면 카카오톡 프로필이 열립니다. 해외에서도 그대로 됩니다.</span>
+      </div>
+    </div>
+
+    <div class="quick-id">
+      <span>카카오톡 ID</span>
+      <strong>juuws</strong>
+      <button class="quick-copy" type="button" data-copy-kakao>ID 복사</button>
+    </div>
+
+    <a class="btn btn-primary btn-sm btn-block" href="#apply" data-quick-close>상담 신청 폼으로 이동</a>
+    <a class="btn btn-ghost btn-sm btn-block" href="mailto:yjp0084@gmail.com?subject=%5B%EC%88%98%ED%95%99%201%3A1%20%EA%B3%BC%EC%99%B8%5D%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98">이메일로 문의</a>
+    <p class="quick-note">시범 수업 · 학습 진단 · 수업료 문의 모두 여기서 바로 이어집니다.</p>
+  </div>
+
+  <button class="quick-btn" id="quickBtn" type="button" aria-expanded="false" aria-controls="quickPop">
+    <span class="quick-btn-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.2c-4.9 0-8.9 3.1-8.9 6.9 0 2.3 1.5 4.3 3.8 5.6l-.8 2.9c-.1.3.2.5.5.3l3.3-2.1c.7.1 1.4.2 2.1.2 4.9 0 8.9-3.1 8.9-6.9S16.9 3.2 12 3.2z" fill="#3C1E1E"/></svg>
+    </span>
+    <span class="quick-btn-label">카톡·빠른 상담<small>QR · ID 복사</small></span>
+  </button>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -2076,6 +2178,41 @@ body.lb-open{overflow:hidden}
     lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
     document.addEventListener('keydown', function (e) {
       if (!lb.hidden && (e.key === 'Escape' || e.key === 'Esc')) close();
+    });
+  })();
+
+  /* ======================================================================
+     우측 하단 빠른 상담
+     ====================================================================== */
+  (function initQuickCta() {
+    var root = $('#quickCta');
+    if (!root) return;
+    var btn = $('#quickBtn');
+    var pop = $('#quickPop');
+    var closeBtn = $('#quickClose');
+    if (!btn || !pop) return;
+
+    function setOpen(on) {
+      pop.hidden = !on;
+      btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+      if (on) {
+        if (closeBtn) closeBtn.focus({ preventScroll: true });
+      } else if (root.contains(document.activeElement) &&
+                 !(document.activeElement.hasAttribute && document.activeElement.hasAttribute('data-quick-close'))) {
+        btn.focus({ preventScroll: true });
+      }
+    }
+
+    btn.addEventListener('click', function () { setOpen(pop.hidden); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+    $$('[data-quick-close]', root).forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('click', function (e) {
+      if (!pop.hidden && !root.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!pop.hidden && (e.key === 'Escape' || e.key === 'Esc')) setOpen(false);
     });
   })();
 
