@@ -3,7 +3,7 @@
 해외 주재원 자녀의 **귀국 대비 1:1 온라인 수학 과외** 상담 신청 페이지입니다.
 빌드 도구 없이 `index.html` 하나로 동작합니다.
 
-- 배포 주소(예정): <https://yj0084.github.io/>
+- 배포 주소: <https://yj0084.github.io/>  (GitHub Pages · main 브랜치 root)
 - 상담 채널: 카카오톡 **juuws** · 이메일 **yjp0084@gmail.com**
 
 ---
