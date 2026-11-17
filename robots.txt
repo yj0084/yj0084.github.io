@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 네이버 서치어드바이저 · 구글 서치 콘솔에 아래 주소를 그대로 제출하면 됩니다.
+Sitemap: https://yj0084.github.io/sitemap.xml
