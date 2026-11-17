@@ -680,6 +680,7 @@ img{max-width:100%;display:block}
 .review-btn{display:block;width:100%;padding:0;border:0;background:var(--ivory-200);cursor:zoom-in;line-height:0}
 .review-btn img{width:100%;height:auto;display:block}
 .review-btn:focus-visible{outline:3px solid var(--emerald-600);outline-offset:-3px}
+.review-stack{display:grid;gap:2px;background:#fff}
 .review-card figcaption{padding:13px 15px 15px}
 .review-tag{display:inline-block;font-size:11px;font-weight:750;letter-spacing:.06em;color:var(--emerald-700);background:var(--emerald-100);padding:3px 9px;border-radius:999px;margin-bottom:7px}
 .review-card figcaption p{font-size:13.5px;line-height:1.6;color:var(--body);letter-spacing:-.02em}
@@ -956,7 +957,7 @@ table.data .en{font-style:italic;color:#4c6076}
       </span>
     </a>
     <nav class="nav" id="nav" aria-label="주요 메뉴">
-      <a href="index.html#reviews">성적 향상 후기</a>
+      <a href="#reviews">성적 향상 후기</a>
       <a href="index.html#why">왜 귀국 수학인가</a>
       <a href="index.html#experience">지도 경력</a>
       <a href="index.html#track">학년별 트랙</a>
@@ -1012,6 +1013,61 @@ table.data .en{font-style:italic;color:#4c6076}
         </p>
       </aside>
     </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     후기
+     ========================================================================= -->
+<section class="section section--paper" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Reviews</p>
+      <h2>실제 성적 향상 &amp; 학부모 후기</h2>
+      <p>
+        학부모님과 학생이 직접 보내 주신 메시지, 그리고 실제 시험지입니다.
+        개인정보 보호를 위해 이름은 가렸고, 내용은 그대로 두었습니다. 이미지를 누르면 크게 볼 수 있습니다.
+      </p>
+    </div>
+
+    <div class="review-grid reveal">
+      <figure class="review-card">
+        <div class="review-stack">
+          <button type="button" class="review-btn" data-src="assets/reviews/review-00-map-report.jpg" data-caption="중국 국제학교 6학년 · MAP Growth Math RIT 243 · 백분위 97-98-99 (상위 2%)" aria-label="MAP 성적표 크게 보기">
+            <img src="assets/reviews/review-00-map-report.jpg" alt="MAP Growth Student Progress Report 캡처: 2025-2026 가을 학기 6학년 수학 RIT 243, 지역 평균 223, 전국 평균 210, 백분위 범위 97-98-99, 수학 영역 성취 High" width="900" height="357" loading="lazy" decoding="async">
+          </button>
+          <button type="button" class="review-btn" data-src="assets/reviews/review-00-map-kakao.jpg" data-caption="학부모 카톡 · “보고서를 오늘 받았어요~ 수학은 각 영역에서 잘 이해하고 있는 것으로 나왔네요”" aria-label="학부모 카톡 후기 크게 보기">
+            <img src="assets/reviews/review-00-map-kakao.jpg" alt="학부모 카카오톡 캡처: 지난번 테스트 본 보고서를 오늘 받았고, 수학은 각 영역에서 잘 이해하고 있는 것으로 나왔다는 내용" width="900" height="542" loading="lazy" decoding="async">
+          </button>
+        </div>
+        <figcaption>
+          <span class="review-tag">중국 국제학교 6학년</span>
+          <p>MAP Math <strong>RIT 243</strong> · 백분위 <strong>97-98-99</strong> (상위 2%)</p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-02-mid2-29to1wrong.jpg" data-caption="중2 · 1학기 29점 → 여름방학 과외 후 중간고사 1문항 오답" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-02-mid2-29to1wrong.jpg" alt="학부모 후기 캡처: 공부를 포기해 1학기 29점이던 중2 학생이 여름방학에 과외를 시작하고 중간고사에서 한 문제만 틀렸다는 내용" width="900" height="670" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">중2</span>
+          <p>1학기 <strong>29점</strong> → 중간고사 <strong>1문항 오답</strong></p>
+        </figcaption>
+      </figure>
+
+      <figure class="review-card">
+        <button type="button" class="review-btn" data-src="assets/reviews/review-01-ap-gt-a.jpg" data-caption="해외 국제학교 · 6주 평균 97점 / AP·GT A" aria-label="후기 크게 보기">
+          <img src="assets/reviews/review-01-ap-gt-a.jpg" alt="국제학교 성적표 캡처와 학부모 메시지: AP/GT A 과목 성적과 '지난 6주도 평균 97점'이라는 내용" width="900" height="740" loading="lazy" decoding="async">
+        </button>
+        <figcaption>
+          <span class="review-tag">해외 국제학교</span>
+          <p><strong>6주 평균 97점</strong> · AP/GT A</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="review-note reveal">※ 위 후기는 실제 수업 후 받은 메시지와 시험지입니다. 점수와 기간은 해당 학생의 사례이며, 학생에 따라 결과는 달라질 수 있습니다.</p>
   </div>
 </section>
 
@@ -1400,6 +1456,15 @@ table.data .en{font-style:italic;color:#4c6076}
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<!-- 후기 확대 보기 -->
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox-inner" role="dialog" aria-modal="true" aria-labelledby="lbCaption">
+    <button class="lb-close" id="lbClose" type="button" aria-label="닫기">×</button>
+    <img id="lbImg" alt="">
+    <p id="lbCaption"></p>
+  </div>
+</div>
+
 <script>
 (function () {
   'use strict';
@@ -1515,6 +1580,45 @@ table.data .en{font-style:italic;color:#4c6076}
 
   var yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ======================================================================
+     후기 확대 보기
+     ====================================================================== */
+  (function initLightbox() {
+    var lb = $('#lightbox');
+    if (!lb) return;
+    var img = $('#lbImg');
+    var cap = $('#lbCaption');
+    var closeBtn = $('#lbClose');
+    var lastFocus = null;
+
+    function open(src, caption, trigger) {
+      lastFocus = trigger || null;
+      img.src = src;
+      img.alt = caption || '후기 이미지';
+      cap.textContent = caption || '';
+      lb.hidden = false;
+      document.body.classList.add('lb-open');
+      closeBtn.focus();
+    }
+    function close() {
+      lb.hidden = true;
+      document.body.classList.remove('lb-open');
+      img.removeAttribute('src');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    $$('.review-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        open(b.getAttribute('data-src'), b.getAttribute('data-caption'), b);
+      });
+    });
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.hidden && (e.key === 'Escape' || e.key === 'Esc')) close();
+    });
+  })();
 
   onScroll();
 })();
