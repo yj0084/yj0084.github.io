@@ -867,6 +867,16 @@ body.lb-open{overflow:hidden}
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
   .js .reveal{opacity:1;transform:none}
 }
+
+/* ==========================================================================
+   14. 주제별 세부 안내 카드
+   ========================================================================== */
+.guide-card{display:flex;flex-direction:column;gap:8px}
+.guide-card .guide-tag{font-size:11.5px;font-weight:750;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald-700)}
+.guide-card h3{font-size:17px;margin:0;letter-spacing:-.03em;line-height:1.4}
+.guide-card p{font-size:14px;line-height:1.65;color:var(--body)}
+.guide-card .guide-more{margin-top:auto;padding-top:10px;font-size:13px;font-weight:750;color:var(--emerald-700)}
+.guide-card:hover .guide-more{color:var(--emerald-600)}
 </style>
 </head>
 <body>
@@ -1498,6 +1508,46 @@ body.lb-open{overflow:hidden}
 </section>
 
 <!-- =========================================================================
+     주제별 세부 안내
+     ========================================================================= -->
+<section class="section section--paper" id="guides">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Guide</p>
+      <h2>주제별로 더 자세히 보기</h2>
+      <p>거주 지역이 다르거나, 귀국 편입을 준비하거나, 학년별 순서가 궁금하다면 해당 안내에서 이어서 확인하실 수 있습니다.</p>
+    </div>
+
+    <div class="grid-4">
+      <a class="card guide-card reveal" href="us-canada-math.html">
+        <span class="guide-tag">미국 · 캐나다</span>
+        <h3>미국·캐나다 주재원 자녀 수학</h3>
+        <p>동부·중부·서부 13~17시간 시차와 Algebra·Geometry·Pre-Calculus·AP, 한국 교과 연결</p>
+        <span class="guide-more">자세히 보기 →</span>
+      </a>
+      <a class="card guide-card reveal" href="china-asia-math.html">
+        <span class="guide-tag">중국 · 아시아</span>
+        <h3>중국·싱가포르·아시아 주재원 자녀 수학</h3>
+        <p>1시간 내외 시차를 살린 평일 저녁 수업, 국제학교·한국학교 병행과 중등·고등 진도 유지</p>
+        <span class="guide-more">자세히 보기 →</span>
+      </a>
+      <a class="card guide-card reveal" href="international-to-korean-math.html">
+        <span class="guide-tag">귀국 편입</span>
+        <h3>국제학교 → 한국 학교 편입 대비 수학</h3>
+        <p>영문·한국 수학 용어 브릿지, 서술형 풀이 교정, 빠진 단원 진단과 보완</p>
+        <span class="guide-more">자세히 보기 →</span>
+      </a>
+      <a class="card guide-card reveal" href="elementary-middle-high-math.html">
+        <span class="guide-tag">학년별 로드맵</span>
+        <h3>초등·중등·고등 학년별 로드맵</h3>
+        <p>초4~6 연산·분수·도형부터 중등 기하·함수, 고등 수학(상·하)·수1·수2까지</p>
+        <span class="guide-more">자세히 보기 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
      FAQ
      ========================================================================= -->
 <section class="section section--paper" id="faq">
@@ -1592,6 +1642,13 @@ body.lb-open{overflow:hidden}
       <strong>귀국 대비 1:1 온라인 수학 과외 · 주재원 수학 전문 선생님</strong>
       개인 과외 · 해외 주재원 자녀 전문<br>
       이메일 <a href="mailto:yjp0084@gmail.com">yjp0084@gmail.com</a> · 카카오톡 <b>juuws</b>
+      <p style="margin:10px 0 0">
+        주제별 안내 ·
+        <a href="us-canada-math.html">미국·캐나다 수학</a> ·
+        <a href="china-asia-math.html">중국·아시아 수학</a> ·
+        <a href="international-to-korean-math.html">귀국 편입 대비</a> ·
+        <a href="elementary-middle-high-math.html">학년별 로드맵</a>
+      </p>
     </div>
     <p class="footer-privacy">
       이 페이지의 상담 신청 폼은 브라우저 안에서만 동작하며, 입력한 내용을 서버로 보내거나 저장하지 않습니다.<br>
